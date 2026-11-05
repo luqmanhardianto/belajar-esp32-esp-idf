@@ -36,6 +36,9 @@ void app_main(void)
         // set output level
         gpio_set_level(led_pin,led_state);
 
+        // add data logger for led_state
+        ESP_LOGI(TAG,"led_state: %s",led_state ? "on": "off");
+
         // delay 1000ms
         vTaskDelay(pdMS_TO_TICKS(1000));
     }
