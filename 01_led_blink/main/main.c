@@ -10,6 +10,11 @@
 // access log esp32
 #include <esp_log.h>
 
+/*
+hardware : esp32-devkitc_v4
+connection : gpio 19 + --- led >|--- - gnd
+*/
+
 // led_pin gpio19
 #define led_pin 19
 
