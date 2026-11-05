@@ -27,4 +27,17 @@ void app_main(void)
     // set initial state of led_pin
     bool led_state = false;
 
+    // main loop
+    while (1)
+    {
+        // toggle led_state
+        led_state = !led_state;
+
+        // set output level
+        gpio_set_level(led_pin,led_state);
+
+        // delay 1000ms
+        vTaskDelay(pdMS_TO_TICKS(1000));
+    }
+
 }
