@@ -7,6 +7,8 @@
 
 #include<esp_log.h>
 
+static const char *TAG = "input project";   //create tag variable for projcet log
+
 void app_main(void)
 {
 
