@@ -15,5 +15,7 @@ bool pushButton_state = false;  //variable for store pushButton state
 
 void app_main(void)
 {
+    gpio_reset_pin(pushButton_pin);     // reset gpio pin
+    gpio_set_direction(pushButton_pin,GPIO_MODE_INPUT);     //set gpio pin as input mode
 
 }
