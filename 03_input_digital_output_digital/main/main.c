@@ -7,6 +7,12 @@
 
 #include <esp_log.h>    // lib for log
 
+
+#define pushButton_pin 21   // define gpio 21
+#define led_pin 23  // define gpio 23
+
+static const char *TAG = "input output digital project :";  // log tag
+
 void app_main(void)
 {
 
