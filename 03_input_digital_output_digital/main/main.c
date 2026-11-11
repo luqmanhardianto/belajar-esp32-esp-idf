@@ -25,4 +25,6 @@ void app_main(void)
     gpio_reset_pin(led_pin);    // reset led_pin state
     gpio_set_direction(led_pin,GPIO_MODE_OUTPUT);   // set led_pin as output mode
 
+    pushButton_state = gpio_get_level(pushButton_pin);  // initial read state of pushButton_pin
+    gpio_set_level(led_pin,led_state);  // initial set state (false) of led_pin
 }
