@@ -13,6 +13,10 @@
 
 static const char *TAG = "input output digital project :";  // log tag
 
+
+bool pushButton_state;  // variable for store pushButton state
+bool led_state = false; // variable for led state
+
 void app_main(void)
 {
 
