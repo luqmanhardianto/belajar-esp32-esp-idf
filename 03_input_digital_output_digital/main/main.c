@@ -27,4 +27,19 @@ void app_main(void)
 
     pushButton_state = gpio_get_level(pushButton_pin);  // initial read state of pushButton_pin
     gpio_set_level(led_pin,led_state);  // initial set state (false) of led_pin
+
+    while (true)    // main loop
+    {
+        /* code */
+        pushButton_state = gpio_get_level(pushButton_pin);  // read current state of pushButton input
+        if (pushButton_state != led_state)  // pushButton_state not equal led_state
+        {
+            /* code */
+            led_state = pushButton_state;   // update led_state value
+            gpio_set_level(led_pin,led_state);  // set level led_pin
+            ESP_LOGI(TAG,"pushButton_state : %d | led_state : %d",pushButton_state, led_state); // data log for pushButton_state and led_state
+        }
+        vTaskDelay(pdMS_TO_TICKS(50));  // delay 50ms for sampling read input pushButton_state
+    }
+    
 }
