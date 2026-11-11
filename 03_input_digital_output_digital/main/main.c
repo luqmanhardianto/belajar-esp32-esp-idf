@@ -19,5 +19,10 @@ bool led_state = false; // variable for led state
 
 void app_main(void)
 {
+    gpio_reset_pin(pushButton_pin); // reset pushButton_pin state
+    gpio_set_direction(pushButton_pin,GPIO_MODE_INPUT); // set pushButton_pin as input mode
+
+    gpio_reset_pin(led_pin);    // reset led_pin state
+    gpio_set_direction(led_pin,GPIO_MODE_OUTPUT);   // set led_pin as output mode
 
 }
