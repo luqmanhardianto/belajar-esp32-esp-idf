@@ -1,11 +1,10 @@
 #include <stdio.h>
 
-#include <driver/gpio.h>    // library for gpio
+#include <driver/ledc.h>    // library for pwm led
 
-#include <freertos/FreeRTOS.h>  // library for timing
-#include <freertos/task.h>  // library for timing
+static const char *TAG = "analog output project :";     // log variable
 
-#include <esp_log.h>    // library for data log
+#define led_pin 23  // define gpio led pin
 
 void app_main(void)
 {
