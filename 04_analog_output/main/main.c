@@ -30,5 +30,19 @@ void app_main(void)
     };
 
     ledc_channel_config(&ledc_channel); // init ledc channel
+    
+    uint32_t duty_cycle = 0;    // variable to change duty cycle
+    while (true)
+    {
+        /* code */
+        for (int pct = 0; pct <=100; pct += 10){
+            uint32_t duty = ((1048575*pct)/100);    // convert value
+            printf("setting duty: %d -> raw value: %lu\n",pct,duty);    // print value
 
+            ledc_set_duty(LEDC_LOW_SPEED_MODE,LEDC_CHANNEL_0,duty);    //set duty cycle
+            ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_0);  // update
+        }
+        
+    }
+    
 }
