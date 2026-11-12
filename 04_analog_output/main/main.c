@@ -14,7 +14,7 @@ void app_main(void)
         .speed_mode = LEDC_LOW_SPEED_MODE,  // speed mode ledc timer, esp32 only option LEDC_LOW_SPEED_MODE
         .duty_resolution = LEDC_TIMER_20_BIT,    // set duty cycle resolution to 20 bit 0 - 1.048.576
         .timer_num = LEDC_TIMER_0,  // timer source channel
-        .freq_hz = 5000,    // ledc timer frequency (Hz)
+        .freq_hz = 50,    // ledc timer frequency (Hz)
         .clk_cfg = LEDC_AUTO_CLK    // source clock of timer
     };
 
