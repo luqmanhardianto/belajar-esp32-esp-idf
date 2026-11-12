@@ -2,7 +2,8 @@
 
 #include <driver/ledc.h>    // library for pwm led
 
-static const char *TAG = "analog output project :";     // log variable
+#include <freertos/FreeRTOS.h>  // lib for timing
+#include <freertos/task.h>  // lib for timing
 
 #define led_pin 23  // define gpio led pin
 
@@ -39,8 +40,9 @@ void app_main(void)
             uint32_t duty = ((1048575*pct)/100);    // convert value
             printf("setting duty: %d -> raw value: %lu\n",pct,duty);    // print value
 
-            ledc_set_duty(LEDC_LOW_SPEED_MODE,LEDC_CHANNEL_0,duty);    //set duty cycle
+            ledc_set_duty(LEDC_LOW_SPEED_MODE,LEDC_CHANNEL_0,duty);    // set duty cycle
             ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_0);  // update
+            vTaskDelay(pdMS_TO_TICKS(1000));    // delay 1000ms
         }
         
     }
