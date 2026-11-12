@@ -21,6 +21,7 @@ void app_main(void)
 
     // configure ledc channel
     ledc_channel_config_t ledc_channel = {
+        .gpio_num = led_pin, // set led pin to led pwm
         .speed_mode = LEDC_LOW_SPEED_MODE,  // speed mode ledc timer
         .channel = LEDC_CHANNEL_0,  // channel ledc
         .timer_sel = LEDC_TIMER_0,  // select timer source
