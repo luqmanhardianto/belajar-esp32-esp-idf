@@ -45,4 +45,16 @@ void app_main(void)
                 .bl = 3
             }
         };
+
+        ESP_ERROR_CHECK(hd44780_init(&lcd));    // init lcd
+        hd44780_switch_backlight(&lcd,true);    // turn on backlight
+
+        hd44780_clear(&lcd);    // lcd clear
+        hd44780_gotoxy(&lcd,0,0);   // set pointer in x=0,y=0
+        hd44780_puts(&lcd,"hello esp-idf"); // write string
+
+        hd44780_gotoxy(&lcd,0,1);   // set pointer in x0,y1
+        hd44780_puts(&lcd,"hd44780 v1.2.6");
+
+        ESP_LOGI(TAG,"teks successfully write in lcd");
 }
