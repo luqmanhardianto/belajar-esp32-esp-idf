@@ -4,6 +4,8 @@
 #include <i2cdev.h>
 #include <pcf8574.h>    // lib for ic pcf8574
 #include <hd44780.h>    // lib for ic lcd
+#include <freertos/FreeRTOS.h>
+#include <freertos/task.h>
 
 #define I2C_PORT        0
 #define I2C_SDA_GPIO    21  // sda pin esp32
@@ -57,4 +59,11 @@ void app_main(void)
         hd44780_puts(&lcd,"hd44780 v1.2.6");
 
         ESP_LOGI(TAG,"teks successfully write in lcd");
+
+        while (true)
+        {
+            /* code */
+            vTaskDelay(pdMS_TO_TICKS(1000));    // delay 1000ms
+        }
+        
 }
