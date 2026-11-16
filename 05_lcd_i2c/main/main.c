@@ -21,5 +21,13 @@ static esp_err_t write_lcd_data(const hd44780_t *lcd, uint8_t data)
 
 void app_main(void)
 {
+    ESP_ERROR_CHECK(i2cdev_init()); // init i2c use i2cdev from esp-idf-lib
+
+    memset(&pcf8574,0,sizeof(i2c_dev_t));   // init i2c for pcf8574
+    ESP_ERROR_CHECK(pcf8574_init_desc(&pcf8574, 
+        LCD_I2C_ADDR,
+        I2C_PORT,
+        I2C_SDA_GPIO,
+        I2C_SCL_GPIO)); // init pcf8574
 
 }
