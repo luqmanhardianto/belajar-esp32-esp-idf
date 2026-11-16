@@ -30,4 +30,19 @@ void app_main(void)
         I2C_SDA_GPIO,
         I2C_SCL_GPIO)); // init pcf8574
 
+        // config pin mapping pcf8574 -> hd44780
+        hd44780_t lcd = {
+            .write_cb = write_lcd_data,
+            .font = HD44780_FONT_5X8,
+            .lines = 2,
+            .pins = {
+                .rs = 0,
+                .e = 2,
+                .d4 = 4,
+                .d5 = 5,
+                .d6 = 6,
+                .d7 = 7,
+                .bl = 3
+            }
+        };
 }
