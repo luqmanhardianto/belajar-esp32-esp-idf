@@ -1,5 +1,11 @@
 {
     "idf.currentSetup": "/home/luqman/.espressif/v6.1/esp-idf",
     "idf.port": "/dev/ttyUSB0",
-    "idf.flashType": "UART"
+    "idf.flashType": "UART",
+    "clangd.path": "/home/luqman/.espressif/tools/esp-clangd/esp-21.1.3_20260408/esp-clangd/bin/clangd",
+    "clangd.arguments": [
+      "--background-index",
+      "--query-driver=**",
+      "--compile-commands-dir=/home/luqman/belajar-esp32-esp-idf/06_i2c_scanner/build"
+    ]
 }

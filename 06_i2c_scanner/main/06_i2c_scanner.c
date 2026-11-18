@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <esp_log.h>
 
 // i2c configuration
 #define I2C_MASTER_SDA_IO 21    // gpio 21 as sda
