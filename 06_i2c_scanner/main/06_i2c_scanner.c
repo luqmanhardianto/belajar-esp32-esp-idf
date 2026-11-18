@@ -1,5 +1,8 @@
 #include <stdio.h>
+
 #include <esp_log.h>
+
+#include <driver/i2c_master.h>
 
 // i2c configuration
 #define I2C_MASTER_SDA_IO 21    // gpio 21 as sda
@@ -14,6 +17,9 @@
 
 // logging
 static const char *TAG="I2C_SCANNER";
+
+// i2c handle
+static i2c_master_bus_handle_t i2c_bus_handle;  // init i2c master bus handle
 
 void app_main(void)
 {
