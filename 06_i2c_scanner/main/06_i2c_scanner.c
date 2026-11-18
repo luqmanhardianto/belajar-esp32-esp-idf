@@ -12,6 +12,8 @@
 
 #define I2C_PROBE_TIMEOUT_MS 100    // i2c timeout communication
 
+// logging
+static const char *TAG="I2C_SCANNER";
 
 void app_main(void)
 {
