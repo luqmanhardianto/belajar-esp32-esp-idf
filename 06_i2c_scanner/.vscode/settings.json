@@ -1,3 +1,5 @@
 {
-    "idf.currentSetup": "/home/luqman/.espressif/v6.1/esp-idf"
+    "idf.currentSetup": "/home/luqman/.espressif/v6.1/esp-idf",
+    "idf.port": "/dev/ttyUSB0",
+    "idf.flashType": "UART"
 }
