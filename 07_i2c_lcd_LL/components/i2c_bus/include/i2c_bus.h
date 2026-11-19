@@ -1,6 +1,7 @@
 #pragma once
 
 #include <driver/i2c_master.h>
+#include <esp_err.h>
 
 typedef struct
 {
@@ -11,3 +12,7 @@ typedef struct
     uint32_t frequency;
 
 } i2c_bus_config_t;
+
+esp_err_t i2c_bus_init(
+    const i2c_bus_config_t *config
+);
