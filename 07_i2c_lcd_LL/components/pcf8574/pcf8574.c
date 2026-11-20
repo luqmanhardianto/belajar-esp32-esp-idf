@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include "pcf8574.h"
 
-    static const char *TAG="pcf8574";
-    static i2c_master_dev_handle_t dev_handle;
+#include <esp_log.h>
 
-    esp_err_t pcf8574_init(
+static const char *TAG="pcf8574";
+static i2c_master_dev_handle_t dev_handle;
+
+esp_err_t pcf8574_init(
     pcf8574_t *device,
     i2c_master_bus_handle_t bus_handle
 )

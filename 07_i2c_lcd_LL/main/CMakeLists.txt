@@ -1,3 +1,3 @@
 idf_component_register(SRCS "main.c"
                     INCLUDE_DIRS "."
-                    REQUIRES i2c_bus)
+                    REQUIRES i2c_bus pcf8574)

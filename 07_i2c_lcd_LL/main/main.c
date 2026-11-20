@@ -15,13 +15,15 @@ void app_main(void)
         .port = I2C_NUM_0,
         .sda_io = 21,
         .scl_io = 22,
-        .frequency = 100000,
-        .bus_handle = bus_handle
+        .frequency = 100000
     };
 
-    
 
-    ESP_ERROR_CHECK(i2c_bus_init(&i2c_config));
+
+    ESP_ERROR_CHECK(i2c_bus_init(
+        &i2c_config,
+        bus_handle
+    ));
 
     ESP_LOGI(TAG,"App start");
 }
