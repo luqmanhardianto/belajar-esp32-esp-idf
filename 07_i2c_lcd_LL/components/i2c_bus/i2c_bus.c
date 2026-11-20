@@ -9,7 +9,7 @@ esp_err_t i2c_bus_init(
     i2c_master_bus_handle_t *bus_handle
 )
 {
-    if (config == NULL)
+    if (config == NULL || bus_handle == NULL)
     {
         return ESP_ERR_INVALID_ARG;
     }

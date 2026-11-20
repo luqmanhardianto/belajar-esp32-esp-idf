@@ -10,7 +10,7 @@ esp_err_t pcf8574_init(
     i2c_master_bus_handle_t bus_handle
 )
 {
-    if (device == NULL)
+    if (device == NULL|| bus_handle == NULL)
     {
         return ESP_ERR_INVALID_ARG;
     }
@@ -35,5 +35,33 @@ esp_err_t pcf8574_init(
 
     ESP_LOGI(TAG,"init success");
     
+    return ESP_OK;
+}
+
+esp_err_t pcf8574_write(
+    pcf8574_t *device,
+    uint8_t data
+)
+{
+    if (device == NULL)
+    {
+        return ESP_ERR_INVALID_ARG;
+    }
+
+    esp_err_t ret = i2c_master_transmit(
+        device->dev_handle,
+        &data,
+        sizeof(data),
+        -1
+    );
+
+    if (ret != ESP_OK)
+    {
+        ESP_LOGE(TAG, "write 0x%02X failed",data);
+        return ret;
+    }
+
+    ESP_LOGI(TAG,"write 0x%02X success", data);
+
     return ESP_OK;
 }

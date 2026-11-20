@@ -9,7 +9,7 @@ static const char *TAG="MAIN";
 
 void app_main(void)
 {
-    i2c_master_bus_handle_t bus_handle = NULL;
+    i2c_master_bus_handle_t bus_handle;
     
     const i2c_bus_config_t i2c_config = {
         .port = I2C_NUM_0,

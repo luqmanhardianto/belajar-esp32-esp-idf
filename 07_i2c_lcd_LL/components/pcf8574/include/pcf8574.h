@@ -17,3 +17,8 @@ esp_err_t pcf8574_init(
     pcf8574_t *device,
     i2c_master_bus_handle_t bus_handle
 );
+
+esp_err_t pcf8574_write(
+    pcf8574_t *device,
+    uint8_t data
+);
