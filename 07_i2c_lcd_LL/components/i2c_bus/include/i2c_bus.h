@@ -10,7 +10,7 @@ typedef struct
     uint32_t  sda_io;
     uint32_t scl_io;
     uint32_t frequency;
-
+    i2c_master_bus_handle_t bus_handle;
 } i2c_bus_config_t;
 
 esp_err_t i2c_bus_init(

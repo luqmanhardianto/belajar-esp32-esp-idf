@@ -5,8 +5,6 @@
 
 static const char *TAG = "I2C-BUS";
 
-static i2c_master_bus_handle_t i2c_bus_handle;
-
 esp_err_t i2c_bus_init(
     const i2c_bus_config_t *config
 )
@@ -25,7 +23,7 @@ esp_err_t i2c_bus_init(
         .flags.enable_internal_pullup = true
     };
 
-    esp_err_t ret = i2c_new_master_bus(&bus_config,&i2c_bus_handle);
+    esp_err_t ret = i2c_new_master_bus(&bus_config,config->bus_handle);
 
     if (ret!= ESP_OK)
     {
