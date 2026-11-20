@@ -5,6 +5,9 @@
 
 #include <esp_log.h>
 
+#include <freertos/FreeRTOS.h>
+#include <freertos/task.h>
+
 static const char *TAG="MAIN";
 
 void app_main(void)
@@ -32,4 +35,26 @@ void app_main(void)
     ));
 
     ESP_LOGI(TAG,"App start");
+
+    while (true)
+    {
+        ESP_ERROR_CHECK(
+            pcf8574_write(
+                &pcf8574_config,
+                0x08
+            )
+        );
+
+        vTaskDelay(pdMS_TO_TICKS(1000));
+
+        ESP_ERROR_CHECK(
+            pcf8574_write(
+                &pcf8574_config,
+                0x00
+            )
+        );
+
+        vTaskDelay(pdMS_TO_TICKS(1000));
+    }
+    
 }
