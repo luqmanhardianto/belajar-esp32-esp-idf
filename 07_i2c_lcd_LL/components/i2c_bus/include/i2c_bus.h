@@ -14,5 +14,5 @@ typedef struct
 
 esp_err_t i2c_bus_init(
     const i2c_bus_config_t *config,
-    i2c_master_bus_handle_t bus_handle
+    i2c_master_bus_handle_t *bus_handle
 );

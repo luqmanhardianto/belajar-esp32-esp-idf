@@ -3,11 +3,10 @@
 
 #include <esp_log.h>
 
-static const char *TAG = "I2C-BUS";
-
+static const char *TAG = "i2c_bus";
 esp_err_t i2c_bus_init(
     const i2c_bus_config_t *config,
-    i2c_master_bus_handle_t bus_handle
+    i2c_master_bus_handle_t *bus_handle
 )
 {
     if (config == NULL)
@@ -24,15 +23,15 @@ esp_err_t i2c_bus_init(
         .flags.enable_internal_pullup = true
     };
 
-    esp_err_t ret = i2c_new_master_bus(&bus_config,&bus_handle);
+    esp_err_t ret = i2c_new_master_bus(&bus_config, bus_handle);
 
     if (ret!= ESP_OK)
     {
-        ESP_LOGE(TAG,"I2C init failed");
+        ESP_LOGE(TAG,"init failed");
         return ret;
     }
 
-    ESP_LOGI(TAG,"I2C init success");
+    ESP_LOGI(TAG,"init success");
     
     return ESP_OK;
 }

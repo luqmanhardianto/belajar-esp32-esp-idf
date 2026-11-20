@@ -4,7 +4,6 @@
 #include <esp_log.h>
 
 static const char *TAG="pcf8574";
-static i2c_master_dev_handle_t dev_handle;
 
 esp_err_t pcf8574_init(
     pcf8574_t *device,
@@ -25,17 +24,16 @@ esp_err_t pcf8574_init(
     esp_err_t ret = i2c_master_bus_add_device(
         bus_handle,
         &dev_config,
-        &dev_handle
+        &device->dev_handle
     );
 
     if (ret!= ESP_OK)
     {
-        ESP_LOGE(TAG,"pcf8574 device init failed");
+        ESP_LOGE(TAG,"init failed");
         return ret;
     }
 
-    ESP_LOGI(TAG,"pcf8574 device init success");
+    ESP_LOGI(TAG,"init success");
     
     return ESP_OK;
-
 }
