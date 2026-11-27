@@ -65,3 +65,31 @@ esp_err_t pcf8574_write(
 
     return ESP_OK;
 }
+
+esp_err_t pcf8574_read(
+    pcf8574_t *device,
+    uint8_t *data
+)
+{
+    // check argument
+    if (device ==NULL || data == NULL)
+    {
+        return ESP_ERR_INVALID_ARG;
+    }
+
+    // read data pcf8574
+    esp_err_t ret = i2c_master_receive(
+        device->dev_handle,
+        data,
+        sizeof(*data),
+        -1
+    );
+
+    if (ret != ESP_OK)
+    {
+        ESP_LOGE(TAG,"read failed");
+        return ret;
+    }
+
+    return ESP_OK;
+}
