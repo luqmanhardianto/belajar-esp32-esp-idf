@@ -36,12 +36,23 @@ void app_main(void)
 
     ESP_LOGI(TAG,"App start");
 
+    uint8_t data=0;
+
     while (true)
     {
         ESP_ERROR_CHECK(
             pcf8574_write(
                 &pcf8574_config,
-                0x08
+                0x88
+            )
+        );
+
+        vTaskDelay(pdMS_TO_TICKS(10));
+
+        ESP_ERROR_CHECK(
+            pcf8574_read(
+                &pcf8574_config,
+                &data
             )
         );
 
@@ -50,7 +61,16 @@ void app_main(void)
         ESP_ERROR_CHECK(
             pcf8574_write(
                 &pcf8574_config,
-                0x00
+                0xFF
+            )
+        );
+
+        vTaskDelay(pdMS_TO_TICKS(10));
+
+        ESP_ERROR_CHECK(
+            pcf8574_read(
+                &pcf8574_config,
+                &data
             )
         );
 

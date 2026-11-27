@@ -81,7 +81,7 @@ esp_err_t pcf8574_read(
     esp_err_t ret = i2c_master_receive(
         device->dev_handle,
         data,
-        sizeof(*data),
+        sizeof(data),
         -1
     );
 
@@ -90,6 +90,8 @@ esp_err_t pcf8574_read(
         ESP_LOGE(TAG,"read failed");
         return ret;
     }
+
+    ESP_LOGI(TAG,"read 0x%02X success", *data);
 
     return ESP_OK;
 }
