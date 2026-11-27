@@ -22,3 +22,8 @@ esp_err_t pcf8574_write(
     pcf8574_t *device,
     uint8_t data
 );
+
+esp_err_t pcf8574_read(
+    pcf8574_t *device,
+    uint8_t *data
+);
